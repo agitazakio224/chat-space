@@ -31,7 +31,7 @@ Things you may want to cover:
 |password|string|null: false|
 ### Association
 - has_many :tweets
-- has_many :groups, through: :users_groupes
+- has_many :groups, through: :users_groups
 
 ## tweetsテーブル
 |Column|Type|Options|
