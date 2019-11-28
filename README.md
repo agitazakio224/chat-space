@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 # Chatspace DB設計
-##usersテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
@@ -33,7 +33,7 @@ Things you may want to cover:
 - has_many :tweets
 - has_many :groups, through: :users_groupes
 
-##tweetsテーブル
+## tweetsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|text||
@@ -43,7 +43,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :group 
 
-##groups_usersテーブル
+## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
@@ -52,7 +52,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :group
 
-##groupsテーブル
+## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|
