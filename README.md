@@ -45,7 +45,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :group 
 
-## groups_usersテーブル
+## users_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
