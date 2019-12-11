@@ -1,0 +1,31 @@
+.main-bar
+
+  .main-bar__top
+    .main-bar__top__user-info
+      %p.main-bar__top__user-info__group-name test
+      %p.main-bar__top__user-info__group-member Member : masa
+    =link_to "#" do
+      .main-bar__top__Edit-btn Edit
+
+  .main-bar__message-box
+    %ul.main-bar__message-box__message-lists
+      %li.main-bar__message-box__message-lists__message-list
+        .main-bar__message-box__message-lists__message-list__message-info
+          %p.main-bar__message-box__message-lists__message-list__message-info__message-user masa
+          %p.main-bar__message-box__message-lists__message-list__message-info__message-date 2019/11/20(Wed) 17:43:01
+        %p.main-bar__message-box__message-lists__message-list__message-text おはよう
+      %li.main-bar__message-box__message-lists__message-list
+        .main-bar__message-box__message-lists__message-list__message-info
+          %p.main-bar__message-box__message-lists__message-list__message-info__message-user masa
+          %p.main-bar__message-box__message-lists__message-list__message-info__message-date 2019/11/20(Wed) 17:43:01
+        %p.main-bar__message-box__message-lists__message-list__message-text 今日は夜から雨
+
+  .main-bar__form
+    %form.main-bar__form__main-header
+      .main-bar__form__main-header__left
+        %input.main-bar__form__main-header__left__text(type="text" placeholder="type a message")/
+        %label.main-bar__form__main-header__left__input-box__image
+          = icon('fas', 'image')
+          %input.main-bar__form__main-header__left__input-box__image__file{type: "file"}
+      
+      %input.main-bar__form__main-header__Send-btn(type="submit" value="Send")/
