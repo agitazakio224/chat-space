@@ -21,11 +21,11 @@
         %p.main-bar__message-box__message-lists__message-list__message-text 今日は夜から雨
 
   .main-bar__form
-    %form.main-bar__form__main-header
-      .main-bar__form__main-header__left
-        %input.main-bar__form__main-header__left__text(type="text" placeholder="type a message")/
-        %label.main-bar__form__main-header__left__input-box__image
-          = icon('fas', 'image')
-          %input.main-bar__form__main-header__left__input-box__image__file{type: "file"}
-      
-      %input.main-bar__form__main-header__Send-btn(type="submit" value="Send")/
+    .main-bar__form__main-header
+      = form_for [@group, @message] do |f|
+        =f.text_field :content, class: 'main-bar__form__main-header__left', placeholder: 'type a message'
+            =f.label :image, class: 'main-bar__form__main-header__left__input-box__image'
+              = icon('fas', 'image')
+              =f.file_field :image, class: 'main-bar__form__main-header__left__input-box__image__file'
+        
+        = f.submit 'Send', class: 'main-bar__form__main-header__Send-btn'
