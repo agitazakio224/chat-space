@@ -4,12 +4,14 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = @group.messages.includes(:user)
+    @group_name = @group.name
+
   end
 
   def create
     @message = @group.messages.new(message_params)
     if @message.save
-      redirect_tp group_messages_path(@group),notice: 'メッセージが送信されました'
+      redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
     else
       @message = @group.messages.includes(:user)
       falsh.now[:alert] = 'メッセージを入力してください。'

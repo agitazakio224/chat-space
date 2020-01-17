@@ -1,31 +1,27 @@
 .main-bar
-
   .main-bar__top
     .main-bar__top__user-info
-      %p.main-bar__top__user-info__group-name test
-      %p.main-bar__top__user-info__group-member Member : masa
-    =link_to "#" do
+      %p.main-bar__top__user-info__group-name 
+      = @group_name
+      
+      %p.main-bar__top__user-info__group-member  
+        Member :
+        - @group.users.each do |user|
+          = user.name
+
+    =link_to edit_group_path(current_user) do
       .main-bar__top__Edit-btn Edit
 
   .main-bar__message-box
-    %ul.main-bar__message-box__message-lists
-      %li.main-bar__message-box__message-lists__message-list
-        .main-bar__message-box__message-lists__message-list__message-info
-          %p.main-bar__message-box__message-lists__message-list__message-info__message-user masa
-          %p.main-bar__message-box__message-lists__message-list__message-info__message-date 2019/11/20(Wed) 17:43:01
-        %p.main-bar__message-box__message-lists__message-list__message-text おはよう
-      %li.main-bar__message-box__message-lists__message-list
-        .main-bar__message-box__message-lists__message-list__message-info
-          %p.main-bar__message-box__message-lists__message-list__message-info__message-user masa
-          %p.main-bar__message-box__message-lists__message-list__message-info__message-date 2019/11/20(Wed) 17:43:01
-        %p.main-bar__message-box__message-lists__message-list__message-text 今日は夜から雨
+    = render @messages
 
   .main-bar__form
     .main-bar__form__main-header
-      = form_for [@group, @message] do |f|
-        =f.text_field :content, class: 'main-bar__form__main-header__left', placeholder: 'type a message'
-            =f.label :image, class: 'main-bar__form__main-header__left__input-box__image'
-              = icon('fas', 'image')
-              =f.file_field :image, class: 'main-bar__form__main-header__left__input-box__image__file'
-        
-        = f.submit 'Send', class: 'main-bar__form__main-header__Send-btn'
+      .form
+        = form_for [@group, @message] do |f|
+          =f.text_field :content, class: 'main-bar__form__main-header__left', placeholder: 'type a message'
+          .form__mask
+            =f.label :image, class: 'main-bar__form__main-header__left__input-box__image' do
+              = icon('fas', 'image') 
+              = f.file_field :image, class: 'main-bar__form__main-header__left__input-box__image__file'
+          = f.submit 'Send', class: 'main-bar__form__main-header__Send-btn' 
