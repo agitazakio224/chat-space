@@ -12,9 +12,10 @@
             =icon('fa', 'cog')
   .side-bar__under         
     - current_user.groups.each do |group|
-      .group
-        = link_to '#' do
-          .group__name
-            = group.name
-          .group__message
-            メッセージはまだありません。
+      .side-bar__under__group--lists
+        .side-bar__under__group--lists__group--list
+          = link_to group_messages_path(group) do
+            .side-bar__under__group--lists__group--list__group--name
+              = group.name
+            .side-bar__under__group--lists__group--list__group--message
+              = group.show_last_message
