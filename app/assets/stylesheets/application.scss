@@ -3,7 +3,7 @@
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 @import "modules/user";
-@import "modules/falsh";
+@import "modules/flash";
 @import "modules/group";
 
 .wrapper{
@@ -110,6 +110,7 @@
     &__message-box {
       height: calc(100% - 190px);
       background-color: #fafafa;
+      overflow: scroll;
       .message {
         padding: 46px 0  40px 40px;
         overflow: scroll;
